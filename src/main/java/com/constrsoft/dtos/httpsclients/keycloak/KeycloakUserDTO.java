@@ -8,8 +8,7 @@ public class KeycloakUserDTO {
 
     private String id;
 
-    @JsonProperty("username")
-    private String userName;
+    private String username;
 
     private Boolean enabled;
 

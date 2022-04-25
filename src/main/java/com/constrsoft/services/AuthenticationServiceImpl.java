@@ -1,5 +1,6 @@
 package com.constrsoft.services;
 
+import com.constrsoft.dtos.httpsclients.keycloak.AutenticationDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationRequestDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationResponseDTO;
 import com.constrsoft.httpclients.KeycloakFeignClient;
@@ -14,8 +15,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private KeycloakFeignClient keycloakFeignClient;
 
     @Override
-    public KeycloakAuthenticationResponseDTO authenticate(KeycloakAuthenticationRequestDTO keycloakAuthenticationRequestDTO) {
-        final var response = this.keycloakFeignClient.authenticate(keycloakAuthenticationRequestDTO);
+    public KeycloakAuthenticationResponseDTO authenticate(AutenticationDTO autenticationDTO) {
+        final var keycloakRequest = KeycloakAuthenticationRequestDTO.builder()
+                .client_id(autenticationDTO.getClientId())
+                .grant_type(autenticationDTO.getGrantType())
+                .password(autenticationDTO.getPassword())
+                .username(autenticationDTO.getUserName())
+                .build();
+
+        final var response = this.keycloakFeignClient.authenticate(
+                keycloakRequest
+        );
 
         return response.getBody();
     }

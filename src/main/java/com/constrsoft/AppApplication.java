@@ -9,7 +9,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableFeignClients
 @EnableSwagger2
-@ComponentScan(basePackages = "com.constrsoft")
 public class AppApplication {
 
     public static void main(String[] args) {

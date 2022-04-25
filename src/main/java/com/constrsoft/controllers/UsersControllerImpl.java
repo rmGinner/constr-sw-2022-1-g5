@@ -9,6 +9,7 @@ import java.util.List;
 
 public class UsersControllerImpl implements UsersController {
 
+
     @Override
     public ResponseEntity<Void> createUser(String authorization, KeycloakUserDTO keycloakUser) {
         return null;

@@ -1,6 +1,7 @@
 package com.constrsoft.controllers;
 
 import com.constrsoft.controllers.interfaces.AuthenticationsController;
+import com.constrsoft.dtos.httpsclients.keycloak.AutenticationDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationRequestDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationResponseDTO;
 import com.constrsoft.services.interfaces.AuthenticationService;
@@ -15,7 +16,9 @@ public class AuthenticationsControllerImpl implements AuthenticationsController 
     private AuthenticationService service;
 
     @Override
-    public ResponseEntity<KeycloakAuthenticationResponseDTO> authenticate(KeycloakAuthenticationRequestDTO keycloakAuthenticationRequestDTO) {
-        return ResponseEntity.ok(this.service.authenticate(keycloakAuthenticationRequestDTO));
+    public ResponseEntity<KeycloakAuthenticationResponseDTO> authenticate(AutenticationDTO autenticationDTO) {
+        return ResponseEntity.ok(this.service.authenticate(
+              autenticationDTO
+        ));
     }
 }

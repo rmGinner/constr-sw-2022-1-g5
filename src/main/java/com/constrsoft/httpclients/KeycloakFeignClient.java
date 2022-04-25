@@ -1,5 +1,6 @@
 package com.constrsoft.httpclients;
 
+import com.constrsoft.CustomFeignConfiguration;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationRequestDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationResponseDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakUserDTO;
@@ -15,8 +16,8 @@ public interface KeycloakFeignClient {
 
     @PostMapping(
             path = "/auth/realms/aulas-keycloak/protocol/openid-connect/token",
-            produces = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
     )
     ResponseEntity<KeycloakAuthenticationResponseDTO> authenticate(
             @RequestBody KeycloakAuthenticationRequestDTO keycloakAuthenticationRequestDTO
