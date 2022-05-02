@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping(path = "/users")
-@RestController
 public interface UsersController {
 
     @PostMapping
