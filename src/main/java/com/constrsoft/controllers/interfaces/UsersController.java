@@ -26,6 +26,12 @@ public interface UsersController {
             @PathVariable String id
     );
 
+    @DeleteMapping(path = "{id}")
+    ResponseEntity<Void> deleteUser(
+            @RequestHeader("Authorization") String authorization,
+            @PathVariable String id
+    );
+
     @PatchMapping(path = "{id}")
     ResponseEntity<KeycloakUserDTO> updateSomeUserInformation(
             @RequestHeader("Authorization") String authorization,

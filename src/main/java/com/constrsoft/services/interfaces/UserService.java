@@ -12,6 +12,8 @@ public interface UserService {
 
     KeycloakUserDTO getOneUser(String authorization, String id);
 
+    void deleteUser(String authorization, String id);
+
     KeycloakUserDTO updateSomeUserInformation(String authorization, String id, KeycloakUserDTO keycloakUserDTO);
 
     KeycloakUserDTO updateAllUserInformation(String authorization, String id, KeycloakUserDTO keycloakUserDTO);

@@ -7,7 +7,6 @@ import com.constrsoft.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -37,6 +36,13 @@ public class UsersControllerImpl implements UsersController {
         KeycloakUserDTO user = this.service.getOneUser(authorization, id);
 
         return ResponseEntity.ok(user);
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteUser(String authorization, String id) {
+        this.service.deleteUser(authorization, id);
+
+        return ResponseEntity.noContent().build();
     }
 
     @Override

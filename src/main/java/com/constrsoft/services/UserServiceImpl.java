@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -31,6 +32,19 @@ public class UserServiceImpl implements UserService {
         final var response = this.feignClient.getOneUser(authorization, id);
 
         return response.getBody();
+    }
+
+    @Override
+    public void deleteUser(String authorization, String id) {
+        final var response = this.feignClient.getOneUser(authorization, id);
+
+        if (Objects.nonNull(response.getBody())) {
+            final var user = response.getBody();
+
+            user.setEnabled(false);
+
+            this.feignClient.updateSomeUserInformation(authorization, id, user);
+        }
     }
 
     @Override
