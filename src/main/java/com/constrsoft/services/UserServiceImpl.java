@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 
             user.setEnabled(false);
 
-            this.feignClient.updateSomeUserInformation(authorization, id, user);
+            this.feignClient.updateAllUserInformation(authorization, id, user);
         }
     }
 
