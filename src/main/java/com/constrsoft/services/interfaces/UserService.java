@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
-    void createUser(String authorization, KeycloakUserDTO keycloakUser);
+    KeycloakUserDTO createUser(String authorization, KeycloakUserDTO keycloakUser);
 
     List<KeycloakUserDTO> geAllUsers(String authorization);
 

@@ -5,6 +5,7 @@ import com.constrsoft.httpclients.KeycloakFeignClient;
 import com.constrsoft.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -16,22 +17,27 @@ public class UserServiceImpl implements UserService {
     private KeycloakFeignClient feignClient;
 
     @Override
-    public void createUser(String authorization, KeycloakUserDTO keycloakUser) {
+    public KeycloakUserDTO createUser(String authorization, KeycloakUserDTO keycloakUser) {
+        keycloakUser.setEnabled(true);
+
         this.feignClient.createUser(authorization, keycloakUser);
+        final var createdKeycloakUser = this.feignClient.getOneUserByName(authorization, keycloakUser.getUsername());
+
+        return CollectionUtils.isEmpty(createdKeycloakUser.getBody()) ? null : createdKeycloakUser.getBody().get(0);
     }
 
     @Override
     public List<KeycloakUserDTO> geAllUsers(String authorization) {
-        final var response = this.feignClient.getAllUsers(authorization);
+        final var response = this.feignClient.getAllEnabledUsers(authorization, true);
 
         return response.getBody();
     }
 
     @Override
     public KeycloakUserDTO getOneUser(String authorization, String id) {
-        final var response = this.feignClient.getOneUser(authorization, id);
+        final var responseBody = this.feignClient.getOneUser(authorization, id).getBody();
 
-        return response.getBody();
+        return Objects.nonNull(responseBody) && responseBody.getEnabled() ? responseBody : null;
     }
 
     @Override
@@ -49,15 +55,27 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public KeycloakUserDTO updateSomeUserInformation(String authorization, String id, KeycloakUserDTO keycloakUserDTO) {
-        final var response = this.feignClient.updateSomeUserInformation(authorization, id, keycloakUserDTO);
+        final var foundUser = this.getOneUser(authorization, id);
 
-        return response.getBody();
+        if (Objects.nonNull(foundUser)) {
+            this.feignClient.updateSomeUserInformation(authorization, id, keycloakUserDTO);
+
+            return this.getOneUser(authorization, id);
+        }
+
+        return null;
     }
 
     @Override
     public KeycloakUserDTO updateAllUserInformation(String authorization, String id, KeycloakUserDTO keycloakUserDTO) {
-        final var response = this.feignClient.updateAllUserInformation(authorization, id, keycloakUserDTO);
+        final var foundUser = this.getOneUser(authorization, id);
 
-        return response.getBody();
+        if (Objects.nonNull(foundUser)) {
+            this.feignClient.updateAllUserInformation(authorization, id, keycloakUserDTO);
+
+            return this.getOneUser(authorization, id);
+        }
+
+        return null;
     }
 }

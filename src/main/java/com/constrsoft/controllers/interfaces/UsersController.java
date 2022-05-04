@@ -9,7 +9,7 @@ import java.util.List;
 public interface UsersController {
 
     @PostMapping
-    ResponseEntity<Void> createUser(
+    ResponseEntity<KeycloakUserDTO> createUser(
             @RequestHeader("Authorization") String authorization,
             @RequestBody KeycloakUserDTO keycloakUser
     );

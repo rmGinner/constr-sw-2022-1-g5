@@ -1,6 +1,5 @@
 package com.constrsoft.httpclients;
 
-import com.constrsoft.CustomFeignConfiguration;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationRequestDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakAuthenticationResponseDTO;
 import com.constrsoft.dtos.httpsclients.keycloak.KeycloakUserDTO;
@@ -30,8 +29,9 @@ public interface KeycloakFeignClient {
     );
 
     @GetMapping(path = "/auth/admin/realms/aulas-keycloak/users")
-    ResponseEntity<List<KeycloakUserDTO>> getAllUsers(
-            @RequestHeader("Authorization") String authorization
+    ResponseEntity<List<KeycloakUserDTO>> getAllEnabledUsers(
+            @RequestHeader("Authorization") String authorization,
+            @RequestParam Boolean enabled
     );
 
     @GetMapping(path = "/auth/admin/realms/aulas-keycloak/users/{id}")
@@ -40,7 +40,13 @@ public interface KeycloakFeignClient {
             @PathVariable String id
     );
 
-    @PatchMapping(path = "/auth/admin/realms/aulas-keycloak/users/{id}")
+    @GetMapping(path = "/auth/admin/realms/aulas-keycloak/users")
+    ResponseEntity<List<KeycloakUserDTO>> getOneUserByName(
+            @RequestHeader("Authorization") String authorization,
+            @RequestParam String username
+    );
+
+    @PutMapping(path = "/auth/admin/realms/aulas-keycloak/users/{id}")
     ResponseEntity<KeycloakUserDTO> updateSomeUserInformation(
             @RequestHeader("Authorization") String authorization,
             @PathVariable String id,
