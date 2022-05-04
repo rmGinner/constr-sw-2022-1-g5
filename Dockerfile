@@ -21,7 +21,6 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN mvn clean install -DskipTests
 
-# copy other source files (keep in image)
-COPY target/constr-sw-2022-1-g5-0.0.1-SNAPSHOT.jar /usr/src/app/app.jar
+CMD ["java", "-jar", "/usr/src/app/target/constr-sw-2022-1-g5-0.0.1-SNAPSHOT.jar"]
 
-CMD ["java", "-jar", "/usr/src/app/app.jar"]
+EXPOSE 8080
