@@ -18,9 +18,10 @@ ENTRYPOINT ["/usr/bin/mvn"]
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # install maven dependency packages (keep in image)
-COPY pom.xml /usr/src/app
-RUN mvn clean install
+COPY . /usr/src/app
+RUN mvn clean install -DskipTests
+
 # copy other source files (keep in image)
-COPY target/constr-sw-2022-1-g5.jar /usr/src/app/app.jar
+COPY target/constr-sw-2022-1-g5-0.0.1-SNAPSHOT.jar /usr/src/app/app.jar
 
 CMD ["java", "-jar", "/usr/src/app/app.jar"]
