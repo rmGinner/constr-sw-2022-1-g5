@@ -11,7 +11,7 @@ ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 # speed up Maven JVM a bit
 ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-ENTRYPOINT ["/usr/bin/mvn"]
+# ENTRYPOINT ["/usr/bin/mvn"]
 # ----
 # Install project dependencies and keep sources
 # make source folder
@@ -19,8 +19,6 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # install maven dependency packages (keep in image)
 COPY . /usr/src/app
-RUN mvn clean install -DskipTests
+RUN mvn  install -DskipTests
 
-CMD ["java", "-jar", "/usr/src/app/target/constr-sw-2022-1-g5-0.0.1-SNAPSHOT.jar"]
-
-EXPOSE 8080
+ENTRYPOINT exec java $JAVA_OPTS  -jar /usr/src/app/target/constr-sw-2022-1-g5-0.0.1-SNAPSHOT.jar
