@@ -1,4 +1,4 @@
-package br.rmginner.aulasservice;
+package br.rmginner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

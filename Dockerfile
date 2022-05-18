@@ -21,4 +21,4 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN mvn  install -DskipTests
 
-ENTRYPOINT exec java $JAVA_OPTS  -jar /usr/src/app/target/constr-sw-2022-1-g5-0.0.1-SNAPSHOT.jar
+ENTRYPOINT exec java $JAVA_OPTS  -jar /usr/src/app/target/aulas-service-1.0.0.jar
