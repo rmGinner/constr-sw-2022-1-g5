@@ -14,7 +14,11 @@ import lombok.Data;
 public class Aula {
 	
 	@Id
-	private String _id;	
+	private String id;
+
 	private String nome;
+
 	private LocalDateTime data;
+
+	private Conteudo conteudo;
 }
