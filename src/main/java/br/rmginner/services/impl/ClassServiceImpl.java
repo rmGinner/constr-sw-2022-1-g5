@@ -1,21 +1,31 @@
 package br.rmginner.services.impl;
 
-import br.rmginner.dtos.ClassDto;
-import br.rmginner.services.ClassService;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import br.rmginner.dtos.ClassDto;
+import br.rmginner.repositories.AulasRepository;
+import br.rmginner.services.ClassService;
 
 @Service
 public class ClassServiceImpl implements ClassService {
-    @Override
+    
+	@Autowired
+	private AulasRepository aulasRepository;
+	
+	@Override
     public ClassDto createClass(ClassDto classDto) {
-        return classDto;
-    }
+		return classDto;
+	}
 
     @Override
     public List<ClassDto> getAllClasses() {
-        return List.of(ClassDto.builder().name("Test").date(LocalDateTime.now()).build());
+        return aulasRepository.findAll().stream().map(aula -> ClassDto.builder().name(aula.getNome()).date(aula.getData()).build()).collect(Collectors.toList());
     }
+    
+    
+    
 }
