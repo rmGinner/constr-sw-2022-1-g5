@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 @Builder
 public class ClassDto {
 
+    private String id;
+
     private String name;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
