@@ -62,7 +62,7 @@ class LessonsControllerImplTest {
 
     @Test
     void shouldReturnListOfLessons() {
-        Mockito.when(service.getAll())
+        Mockito.when(service.getBy(null))
                 .thenReturn(List.of(getTestLesson()));
 
         RestAssuredMockMvc.given()

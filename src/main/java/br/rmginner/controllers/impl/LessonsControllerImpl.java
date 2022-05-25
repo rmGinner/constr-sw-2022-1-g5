@@ -5,11 +5,13 @@ import br.rmginner.dtos.LessonDto;
 import br.rmginner.services.LessonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class LessonsControllerImpl implements LessonsController {
@@ -21,8 +23,10 @@ public class LessonsControllerImpl implements LessonsController {
     }
 
     @Override
-    public ResponseEntity<List<LessonDto>> getLessons(String classId) {
-        return ResponseEntity.ok(this.service.getBy(classId));
+    public ResponseEntity<List<LessonDto>> getLessonsBy(String classId) {
+        final var foundLessons = this.service.getBy(classId);
+
+        return CollectionUtils.isEmpty(foundLessons) ? ResponseEntity.noContent().build() : ResponseEntity.ok(foundLessons);
     }
 
     @Override

@@ -15,6 +15,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Example;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -58,11 +59,12 @@ class LessonServiceImplTest {
     void shouldGetAllLessons() {
         final var lessons = List.of(getTestLesson());
         final var lessonDtoListToReturn = List.of(getTestLessonDto());
+        final var example = Example.of(Lesson.builder().classId(MOCK_CLASS_ID).build());
 
-        Mockito.when(repository.findAll())
+        Mockito.when(repository.findAll(example))
                 .thenReturn(lessons);
 
-        final var lessonDtoList = service.getAll();
+        final var lessonDtoList = service.getBy(MOCK_CLASS_ID);
 
         Assertions.assertEquals(1, lessonDtoList.size());
         Assertions.assertEquals(lessonDtoListToReturn, lessonDtoList);
@@ -84,6 +86,8 @@ class LessonServiceImplTest {
         return Lesson.builder()
                 .name(TEST_NAME)
                 .date(TEST_DATE)
+                .buildingId(MOCK_BUILDING_ID)
+                .classId(MOCK_CLASS_ID)
                 .contents(
                         List.of(
                                 Content.builder()

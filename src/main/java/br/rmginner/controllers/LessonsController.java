@@ -19,7 +19,7 @@ public interface LessonsController {
 
     @ApiOperation("Get all lessons")
     @GetMapping
-    ResponseEntity<List<LessonDto>> getLessons(@Nullable @RequestParam String classId);
+    ResponseEntity<List<LessonDto>> getLessonsBy(@Nullable @RequestParam String classId);
 
     @ApiOperation("Get lesson by ID")
     @GetMapping("{id}")
