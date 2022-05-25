@@ -9,7 +9,7 @@ public interface LessonService {
 
     LessonDto create(LessonDto dto);
 
-    List<LessonDto> getAll();
+    List<LessonDto> getBy(String classId);
 
     Optional<LessonDto> getLessonById(String id);
 }

@@ -9,6 +9,7 @@ import br.rmginner.remotes.classservice.dto.ClassDto;
 import br.rmginner.repositories.LessonsRepository;
 import br.rmginner.services.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,27 +19,25 @@ import java.util.stream.Collectors;
 @Service
 public class LessonServiceImpl implements LessonService {
 
-    private static final String MOCK_BUILDING_ID = "testeasd";
-
-    private static final String MOCK_CLASS_ID = "testeasd";
-
     @Autowired
-    private LessonsRepository aulasRepository;
+    private LessonsRepository repository;
 
     @Override
     public LessonDto create(LessonDto dto) {
-        final var lessonEntity = this.aulasRepository.save(this.convertDtoToEntity(dto));
+        final var lessonEntity = this.repository.save(this.convertDtoToEntity(dto));
 
         dto.setId(lessonEntity.getId());
-        dto.setClassDto(mockClassFromRemoteService());
-        dto.setBuilding(mockBuildingFromRemoteService());
+        dto.setClassDto(mockClassFromRemoteService(lessonEntity.getClassId()));
+        dto.setBuilding(mockBuildingFromRemoteService(lessonEntity.getBuildingId()));
 
         return dto;
     }
 
     @Override
-    public List<LessonDto> getAll() {
-        return aulasRepository.findAll()
+    public List<LessonDto> getBy(String classId) {
+        final var example = Example.of(Lesson.builder().classId(classId).build());
+
+        return repository.findAll(example)
                 .stream()
                 .map(this::convertEntityToDto)
                 .collect(Collectors.toList());
@@ -46,19 +45,19 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public Optional<LessonDto> getLessonById(String id) {
-        return this.aulasRepository.findById(id).map(this::convertEntityToDto);
+        return this.repository.findById(id).map(this::convertEntityToDto);
     }
 
-    private BuildingDto mockBuildingFromRemoteService() {
+    private BuildingDto mockBuildingFromRemoteService(String buildingId) {
         return BuildingDto.builder()
-                .id(MOCK_BUILDING_ID)
+                .id(buildingId)
                 .name("Test")
                 .build();
     }
 
-    private ClassDto mockClassFromRemoteService() {
+    private ClassDto mockClassFromRemoteService(String classId) {
         return ClassDto.builder()
-                .id(MOCK_CLASS_ID)
+                .id(classId)
                 .name("Test")
                 .build();
     }
@@ -68,8 +67,8 @@ public class LessonServiceImpl implements LessonService {
                 .id(lesson.getId())
                 .name(lesson.getName())
                 .date(lesson.getDate())
-                .building(mockBuildingFromRemoteService())
-                .classDto(mockClassFromRemoteService())
+                .building(mockBuildingFromRemoteService(lesson.getBuildingId()))
+                .classDto(mockClassFromRemoteService(lesson.getClassId()))
                 .contents(
                         lesson.getContents()
                                 .stream()
@@ -98,6 +97,8 @@ public class LessonServiceImpl implements LessonService {
                 .id(dto.getId())
                 .name(dto.getName())
                 .date(dto.getDate())
+                .classId(dto.getClassDto().getId())
+                .buildingId(dto.getBuilding().getId())
                 .contents(contentEntities)
                 .build();
     }

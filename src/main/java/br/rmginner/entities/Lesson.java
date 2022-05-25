@@ -20,5 +20,9 @@ public class Lesson {
 
     private LocalDateTime date;
 
+    private String classId;
+
+    private String buildingId;
+
     private List<Content> contents;
 }

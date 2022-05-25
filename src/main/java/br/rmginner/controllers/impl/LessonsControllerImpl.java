@@ -21,8 +21,8 @@ public class LessonsControllerImpl implements LessonsController {
     }
 
     @Override
-    public ResponseEntity<List<LessonDto>> getLessons() {
-        return ResponseEntity.ok(this.service.getAll());
+    public ResponseEntity<List<LessonDto>> getLessons(String classId) {
+        return ResponseEntity.ok(this.service.getBy(classId));
     }
 
     @Override

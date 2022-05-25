@@ -6,7 +6,7 @@ services:
     ports:
       - 27017:27017
     environment:
-      MONGO_INITDB_DATABASE: "classes"
+      MONGO_INITDB_DATABASE: "lessons"
       MONGO_INITDB_ROOT_USERNAME: "root"
       MONGO_INITDB_ROOT_PASSWORD: "qwe123"
     volumes:
