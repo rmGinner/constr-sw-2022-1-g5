@@ -6,12 +6,14 @@ import lombok.Data;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
-public class ClassDto {
+public class LessonDto {
 
     private String id;
 
@@ -22,7 +24,6 @@ public class ClassDto {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime date;
 
-    @NotNull(message = "Conteúdo obrigatório")
-    @Valid
-    private ContentDto content;
+    @NotEmpty(message = "Lista de conteúdos obrigatória")
+    private List<@Valid ContentDto> contents;
 }

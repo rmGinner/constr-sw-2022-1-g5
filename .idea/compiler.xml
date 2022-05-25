@@ -8,15 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="aulas-service" />
+        <module name="constr-sw-2022-1-g5" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aulas-service" target="17" />
+      <module name="constr-sw-2022-1-g5" target="16" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="aulas-service" options="-parameters" />
+      <module name="constr-sw-2022-1-g5" options="-parameters" />
     </option>
   </component>
 </project>

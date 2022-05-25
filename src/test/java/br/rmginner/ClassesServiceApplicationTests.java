@@ -1,7 +1,7 @@
 package br.rmginner;
 
-import br.rmginner.dtos.ClassDto;
-import br.rmginner.services.ClassService;
+import br.rmginner.dtos.LessonDto;
+import br.rmginner.services.LessonService;
 import io.restassured.RestAssured;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import io.restassured.parsing.Parser;
@@ -22,7 +22,7 @@ import java.util.List;
 @WebMvcTest
 class ClassesServiceApplicationTests {
 
-    private static final String CLASSES_ENDPOINT = "/classes";
+    private static final String CLASSES_ENDPOINT = "/lessons";
 
     private static final String TEST_NAME = "Test";
 
@@ -34,7 +34,7 @@ class ClassesServiceApplicationTests {
     private MockMvc mockMvc;
 
     @MockBean
-    private ClassService classService;
+    private LessonService service;
 
     @BeforeEach
     void setUp() {
@@ -44,8 +44,8 @@ class ClassesServiceApplicationTests {
 
     @Test
     void shouldReturnListOfClasses() {
-        Mockito.when(classService.getAllClasses())
-                .thenReturn(List.of(getTestClass()));
+        Mockito.when(service.getAll())
+                .thenReturn(List.of(getTestLesson()));
 
         RestAssuredMockMvc.given()
                 .auth().none()
@@ -60,14 +60,14 @@ class ClassesServiceApplicationTests {
 
     @Test
     void shouldCreateClass() {
-        Mockito.doReturn(getTestClass())
-                .when(classService)
-                .createClass(getTestClass());
+        Mockito.doReturn(getTestLesson())
+                .when(service)
+                .create(getTestLesson());
 
         RestAssuredMockMvc.given()
                 .auth().none()
                 .and()
-                .body(getTestClass())
+                .body(getTestLesson())
                 .post(CLASSES_ENDPOINT)
                 .then()
                 .apply(MockMvcResultHandlers.print())
@@ -76,8 +76,8 @@ class ClassesServiceApplicationTests {
                 .body("$.date", Matchers.equalTo(TEST_DATE_AS_STRING));
     }
 
-    private ClassDto getTestClass() {
-        return ClassDto.builder()
+    private LessonDto getTestLesson() {
+        return LessonDto.builder()
                 .name(TEST_NAME)
                 .date(TEST_DATE)
                 .build();
