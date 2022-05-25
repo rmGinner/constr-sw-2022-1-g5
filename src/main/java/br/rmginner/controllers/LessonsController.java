@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Api(tags = "Lessons Service", value = "test", description = "Service to manage lessons and their contents.")
-@RequestMapping(path = "lessons")
+@RequestMapping
 public interface LessonsController {
 
     @ApiOperation("Get all lessons")
