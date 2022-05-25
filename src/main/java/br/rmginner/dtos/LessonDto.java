@@ -1,6 +1,9 @@
 package br.rmginner.dtos;
 
+import br.rmginner.remotes.buildingservice.dto.BuildingDto;
+import br.rmginner.remotes.classservice.dto.ClassDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -23,6 +26,15 @@ public class LessonDto {
     @NotNull(message = "Data obrigatória")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime date;
+
+    @NotNull(message = "O prédio deve ser informado.")
+    @Valid
+    private BuildingDto building;
+
+    @JsonProperty("class")
+    @NotNull(message = "A turma deve ser informada.")
+    @Valid
+    private ClassDto classDto;
 
     @NotEmpty(message = "Lista de conteúdos obrigatória")
     private List<@Valid ContentDto> contents;

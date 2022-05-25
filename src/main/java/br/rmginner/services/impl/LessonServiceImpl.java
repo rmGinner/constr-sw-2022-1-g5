@@ -4,6 +4,8 @@ import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 import br.rmginner.entities.Content;
 import br.rmginner.entities.Lesson;
+import br.rmginner.remotes.buildingservice.dto.BuildingDto;
+import br.rmginner.remotes.classservice.dto.ClassDto;
 import br.rmginner.repositories.LessonsRepository;
 import br.rmginner.services.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,10 @@ import java.util.stream.Collectors;
 @Service
 public class LessonServiceImpl implements LessonService {
 
+    private static final String MOCK_BUILDING_ID = "testeasd";
+
+    private static final String MOCK_CLASS_ID = "testeasd";
+
     @Autowired
     private LessonsRepository aulasRepository;
 
@@ -24,6 +30,8 @@ public class LessonServiceImpl implements LessonService {
         final var lessonEntity = this.aulasRepository.save(this.convertDtoToEntity(dto));
 
         dto.setId(lessonEntity.getId());
+        dto.setClassDto(mockClassFromRemoteService());
+        dto.setBuilding(mockBuildingFromRemoteService());
 
         return dto;
     }
@@ -41,11 +49,27 @@ public class LessonServiceImpl implements LessonService {
         return this.aulasRepository.findById(id).map(this::convertEntityToDto);
     }
 
-    public LessonDto convertEntityToDto(Lesson lesson) {
+    private BuildingDto mockBuildingFromRemoteService() {
+        return BuildingDto.builder()
+                .id(MOCK_BUILDING_ID)
+                .name("Test")
+                .build();
+    }
+
+    private ClassDto mockClassFromRemoteService() {
+        return ClassDto.builder()
+                .id(MOCK_CLASS_ID)
+                .name("Test")
+                .build();
+    }
+
+    private LessonDto convertEntityToDto(Lesson lesson) {
         return LessonDto.builder()
                 .id(lesson.getId())
                 .name(lesson.getName())
                 .date(lesson.getDate())
+                .building(mockBuildingFromRemoteService())
+                .classDto(mockClassFromRemoteService())
                 .contents(
                         lesson.getContents()
                                 .stream()
@@ -59,7 +83,7 @@ public class LessonServiceImpl implements LessonService {
                 .build();
     }
 
-    public Lesson convertDtoToEntity(LessonDto dto) {
+    private Lesson convertDtoToEntity(LessonDto dto) {
         final var contentEntities = dto.getContents()
                 .stream()
                 .map(contentDto -> Content.builder()
