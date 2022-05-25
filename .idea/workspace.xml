@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="091ee7ca-ee7f-4a78-b0b7-278b0e48ad50" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Lesson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/repositories/LessonsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/repositories/LessonsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/services/impl/LessonServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/services/impl/LessonServiceImplTest.java" afterDir="false" />
     </list>
@@ -73,7 +68,7 @@
       <recent name="br.rmginner.dtos" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in constr-sw-2022-1-g5">
+  <component name="RunManager" selected="JUnit.All in constr-sw-2022-1-g5 (1)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -99,6 +94,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in constr-sw-2022-1-g5 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="constr-sw-2022-1-g5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in constr-sw-2022-1-g5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="constr-sw-2022-1-g5" />
       <option name="PACKAGE_NAME" value="" />
@@ -110,9 +113,11 @@
     <list>
       <item itemvalue="Application.LessonsServiceApplication" />
       <item itemvalue="JUnit.All in constr-sw-2022-1-g5" />
+      <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (1)" />
         <item itemvalue="JUnit.All in constr-sw-2022-1-g5" />
         <item itemvalue="Application.LessonsServiceApplication" />
       </list>
@@ -144,6 +149,30 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java</url>
+          <line>35</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5.ic" NAME="All in constr-sw-2022-1-g5 Coverage Results" MODIFIED="1653508511898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
