@@ -3,6 +3,8 @@ package br.rmginner.controllers.impl;
 import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 import br.rmginner.entities.enums.ContentType;
+import br.rmginner.remotes.buildingservice.dto.BuildingDto;
+import br.rmginner.remotes.classservice.dto.ClassDto;
 import br.rmginner.services.LessonService;
 import io.restassured.RestAssured;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
@@ -40,6 +42,10 @@ class LessonsControllerImplTest {
     private static final String TEST_INVALID_JSON_MSG = "Invalid request body format.";
 
     private static final String TEST_INVALID_JSON = "{ \"date\":\"tests\"}";
+
+    private static final String MOCK_BUILDING_ID = "testeasd";
+
+    private static final String MOCK_CLASS_ID = "testeasd";
 
 
     @Autowired
@@ -151,6 +157,8 @@ class LessonsControllerImplTest {
         return LessonDto.builder()
                 .name(TEST_NAME)
                 .date(TEST_DATE)
+                .building(mockBuildingFromRemoteService())
+                .classDto(mockClassFromRemoteService())
                 .contents(
                         List.of(
                                 ContentDto.builder()
@@ -159,6 +167,20 @@ class LessonsControllerImplTest {
                                         .build()
                         )
                 )
+                .build();
+    }
+
+    private BuildingDto mockBuildingFromRemoteService() {
+        return BuildingDto.builder()
+                .id(MOCK_BUILDING_ID)
+                .name("Test")
+                .build();
+    }
+
+    private ClassDto mockClassFromRemoteService() {
+        return ClassDto.builder()
+                .id(MOCK_CLASS_ID)
+                .name("Test")
                 .build();
     }
 }

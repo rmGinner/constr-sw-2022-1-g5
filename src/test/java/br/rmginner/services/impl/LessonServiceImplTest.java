@@ -5,6 +5,8 @@ import br.rmginner.dtos.LessonDto;
 import br.rmginner.entities.Content;
 import br.rmginner.entities.Lesson;
 import br.rmginner.entities.enums.ContentType;
+import br.rmginner.remotes.buildingservice.dto.BuildingDto;
+import br.rmginner.remotes.classservice.dto.ClassDto;
 import br.rmginner.repositories.LessonsRepository;
 import br.rmginner.services.LessonService;
 import org.junit.jupiter.api.Assertions;
@@ -27,7 +29,9 @@ class LessonServiceImplTest {
 
     private static final LocalDateTime TEST_DATE = LocalDateTime.of(2022, 5, 4, 20, 13, 0);
 
-    private static final String TEST_DATE_AS_STRING = "2022-05-04T20:13:00";
+    private static final String MOCK_BUILDING_ID = "testeasd";
+
+    private static final String MOCK_CLASS_ID = "testeasd";
 
     @MockBean
     private LessonsRepository repository;
@@ -95,6 +99,8 @@ class LessonServiceImplTest {
         return LessonDto.builder()
                 .name(TEST_NAME)
                 .date(TEST_DATE)
+                .building(mockBuildingFromRemoteService())
+                .classDto(mockClassFromRemoteService())
                 .contents(
                         List.of(
                                 ContentDto.builder()
@@ -103,6 +109,20 @@ class LessonServiceImplTest {
                                         .build()
                         )
                 )
+                .build();
+    }
+
+    private BuildingDto mockBuildingFromRemoteService() {
+        return BuildingDto.builder()
+                .id(MOCK_BUILDING_ID)
+                .name("Test")
+                .build();
+    }
+
+    private ClassDto mockClassFromRemoteService() {
+        return ClassDto.builder()
+                .id(MOCK_CLASS_ID)
+                .name("Test")
                 .build();
     }
 

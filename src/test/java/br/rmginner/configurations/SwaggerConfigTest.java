@@ -1,16 +1,20 @@
 package br.rmginner.configurations;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import springfox.documentation.spi.DocumentationType;
 
 @SpringBootTest
 class SwaggerConfigTest {
 
-    @Autowired
     private SwaggerConfig swaggerConfig;
+
+    @BeforeEach
+    void setUp() {
+        swaggerConfig = new SwaggerConfig();
+    }
 
     @Test
     void shouldReturnSwaggerCustomConfig() {
