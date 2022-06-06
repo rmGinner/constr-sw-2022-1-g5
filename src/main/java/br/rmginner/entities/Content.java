@@ -3,6 +3,7 @@ package br.rmginner.entities;
 import br.rmginner.entities.enums.ContentType;
 import lombok.Builder;
 import lombok.Data;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
