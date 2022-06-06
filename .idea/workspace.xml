@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="091ee7ca-ee7f-4a78-b0b7-278b0e48ad50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/ContentsControllerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/remotes/contentservice/dto/ContentDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/repositories/ContentsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/ContentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/ContentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constr-sw-2022-1-g5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/constr-sw-2022-1-g5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/ContentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/ContentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/ContentsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/ContentsControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Content.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Content.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Lesson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/ContentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/ContentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/ContentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/ContentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +60,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../simulacao-metodos-analiticos/queue-simulator" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
   <component name="RecentsManager">
@@ -79,21 +87,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.LessonsServiceApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LessonsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.rmginner.LessonsServiceApplication" />
       <module name="constr-sw-2022-1-g5" />
-      <option name="VM_PARAMETERS" value="-Dspring.data.mongodb.uri=mongodb://root:qwe123@ec2-34-237-142-34.compute-1.amazonaws.com:27017/lessons?authSource=admin" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="br.rmginner.*" />
@@ -120,10 +116,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LessonsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="constr-sw-2022-1-g5" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.rmginner.LessonsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.LessonsServiceApplication" />
       <item itemvalue="JUnit.All in constr-sw-2022-1-g5" />
       <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (1)" />
+      <item itemvalue="Spring Boot.LessonsServiceApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -142,6 +146,8 @@
       <option name="presentableId" value="Default" />
       <updated>1652913247086</updated>
       <workItem from="1652913267218" duration="3983000" />
+      <workItem from="1654555918284" duration="1411000" />
+      <workItem from="1654558290049" duration="845000" />
     </task>
     <servers />
   </component>
@@ -161,9 +167,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5.ic" NAME="All in constr-sw-2022-1-g5 Coverage Results" MODIFIED="1653508511898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5__2_.ic" NAME="All in constr-sw-2022-1-g5 (2) Coverage Results" MODIFIED="1653505105025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5__1_.ic" NAME="All in constr-sw-2022-1-g5 (1) Coverage Results" MODIFIED="1653522092708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5__3_.ic" NAME="All in constr-sw-2022-1-g5 (3) Coverage Results" MODIFIED="1653505905739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5.ic" NAME="All in constr-sw-2022-1-g5 Coverage Results" MODIFIED="1653508511898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

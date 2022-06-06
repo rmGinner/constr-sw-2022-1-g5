@@ -2,6 +2,7 @@ package br.rmginner.controllers.impl;
 
 import br.rmginner.controllers.LessonsController;
 import br.rmginner.dtos.LessonDto;
+import br.rmginner.services.ContentService;
 import br.rmginner.services.LessonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class LessonsControllerImpl implements LessonsController {
 
     private final LessonService service;
 
-    public LessonsControllerImpl(LessonService classService) {
+    public LessonsControllerImpl(LessonService classService, ContentService contentService) {
         this.service = classService;
     }
 
@@ -50,7 +51,7 @@ public class LessonsControllerImpl implements LessonsController {
     }
 
     @Override
-    public ResponseEntity<LessonDto> PatchLesson(String id, LessonDto classDto) {
+    public ResponseEntity<LessonDto> patchLesson(String id, LessonDto classDto) {
         classDto.setId(id);
 
         return ResponseEntity

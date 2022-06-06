@@ -1,17 +1,18 @@
 package br.rmginner.services.impl;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.stereotype.Service;
-
 import br.rmginner.dtos.ContentDto;
 import br.rmginner.entities.Content;
 import br.rmginner.repositories.ContentsRepository;
 import br.rmginner.services.ContentService;
+import br.rmginner.utils.BusinessException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ContentServiceImpl implements ContentService {
@@ -44,6 +45,21 @@ public class ContentServiceImpl implements ContentService {
         return this.repository.findById(id).map(this::convertEntityToDto);
     }
 
+    @Override
+    public List<ContentDto> saveAll(List<ContentDto> contentDtoList) {
+        if (CollectionUtils.isEmpty(contentDtoList)) {
+            throw new BusinessException("Deve ser informado ao menos um conteúdo.");
+        }
+
+        final var contents = contentDtoList.stream().map(this::convertDtoToEntity)
+                .peek(entity -> entity.setId(null))
+                .collect(Collectors.toList());
+
+        final var savedContents = this.repository.saveAll(contents);
+
+        return savedContents.stream().map(this::convertEntityToDto).collect(Collectors.toList());
+    }
+
     private ContentDto convertEntityToDto(Content content) {
         return ContentDto.builder()
                 .id(content.getId())
@@ -52,7 +68,7 @@ public class ContentServiceImpl implements ContentService {
                 .link(content.getLink())
                 .build();
     }
-    
+
     private Content convertDtoToEntity(ContentDto dto) {
         return Content.builder()
                 .id(dto.getId())

@@ -51,7 +51,7 @@ public class ContentsControllerImpl implements ContentsController {
 	}
 
 	@Override
-	public ResponseEntity<ContentDto> PatchContent(String id) {
+	public ResponseEntity<ContentDto> patchContent(String id) {
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.build();

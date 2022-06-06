@@ -7,6 +7,7 @@ import br.rmginner.entities.Lesson;
 import br.rmginner.remotes.buildingservice.dto.BuildingDto;
 import br.rmginner.remotes.classservice.dto.ClassDto;
 import br.rmginner.repositories.LessonsRepository;
+import br.rmginner.services.ContentService;
 import br.rmginner.services.LessonService;
 import br.rmginner.utils.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class LessonServiceImpl implements LessonService {
     @Autowired
     private LessonsRepository repository;
 
+    @Autowired
+    private ContentService contentService;
+
     @Override
     public LessonDto save(LessonDto dto) {
         final var lessonOpt = Objects.nonNull(dto.getId()) ? this.repository.findById(dto.getId()) : Optional.empty();
@@ -33,6 +37,14 @@ public class LessonServiceImpl implements LessonService {
         if (lessonOpt.isEmpty()) {
             dto.setId(null);
         }
+
+        List<ContentDto> savedContents = null;
+
+        if (!CollectionUtils.isEmpty(dto.getContents())) {
+            savedContents = this.contentService.saveAll(dto.getContents());
+        }
+
+        dto.setContents(savedContents);
 
         final var lessonEntity = this.repository.save(this.convertDtoToEntity(dto));
 
@@ -92,11 +104,6 @@ public class LessonServiceImpl implements LessonService {
         lesson.setClassId(Objects.nonNull(lessonDto.getClassDto()) ? lessonDto.getClassDto().getId() : lesson.getClassId());
         lesson.setDate(Objects.nonNull(lessonDto.getDate()) ? lessonDto.getDate() : lesson.getDate());
         lesson.setName(StringUtils.isEmpty(lessonDto.getName()) ? lesson.getName() : lessonDto.getName());
-        lesson.setContents(
-                CollectionUtils.isEmpty(lessonDto.getContents()) ?
-                        lesson.getContents() :
-                        lessonDto.getContents().stream().map(this::convertContentDtoToEntity).collect(Collectors.toList())
-        );
     }
 
     private BuildingDto mockBuildingFromRemoteService(String buildingId) {

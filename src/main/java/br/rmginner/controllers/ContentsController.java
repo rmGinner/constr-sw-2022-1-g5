@@ -38,6 +38,6 @@ public interface ContentsController {
     
     @ApiOperation("Patch a content by ID.")
     @PatchMapping("{id}")
-    ResponseEntity<ContentDto> PatchContent(@PathVariable String id);
+    ResponseEntity<ContentDto> patchContent(@PathVariable String id);
     
 }

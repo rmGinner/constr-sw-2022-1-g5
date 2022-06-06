@@ -39,6 +39,6 @@ public interface LessonsController {
 
     @ApiOperation("Patch a lesson by ID.")
     @PatchMapping("{id}")
-    ResponseEntity<LessonDto> PatchLesson(@PathVariable String id, @RequestBody LessonDto classDto);
+    ResponseEntity<LessonDto> patchLesson(@PathVariable String id, @RequestBody LessonDto classDto);
 
 }
