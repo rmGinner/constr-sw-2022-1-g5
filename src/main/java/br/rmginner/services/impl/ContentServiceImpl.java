@@ -7,11 +7,13 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import br.rmginner.dtos.ContentDto;
 import br.rmginner.entities.Content;
 import br.rmginner.repositories.ContentsRepository;
 import br.rmginner.services.ContentService;
+import br.rmginner.utils.BusinessException;
 
 @Service
 public class ContentServiceImpl implements ContentService {
@@ -44,6 +46,39 @@ public class ContentServiceImpl implements ContentService {
         return this.repository.findById(id).map(this::convertEntityToDto);
     }
 
+    @Override
+    public void deleteById(String id) {
+        final var contentOpt = this.repository.findById(id);
+
+        if (contentOpt.isPresent()) {
+            final var updatedContent = contentOpt.get();
+            updatedContent.setEnabled(false);
+            this.repository.save(updatedContent);
+        }
+    }
+
+    @Override
+    public ContentDto patchUpdate(ContentDto contentDto) {
+        final var foundContentOpt = this.repository.findOne(Example.of(Content.builder().isEnabled(true).id(contentDto.getId()).build()));
+
+        if (foundContentOpt.isEmpty()) {
+            throw new BusinessException("Nenhum conteúdo encontrado para este ID.");
+        }
+        var contentUpdated = foundContentOpt.get();
+        
+        this.updateEntityFromDto(contentDto, contentUpdated);
+        
+        contentUpdated = this.repository.save(contentUpdated);
+        
+        return convertEntityToDto(contentUpdated);
+    }
+
+    private void updateEntityFromDto(ContentDto contentDto, Content content) {
+    	content.setName(StringUtils.isEmpty(contentDto.getName()) ? content.getName() : contentDto.getName());
+    	content.setType(contentDto.getType() != null ? content.getType() : contentDto.getType());
+    	content.setLink(StringUtils.isEmpty(contentDto.getLink()) ? content.getLink() : contentDto.getLink());
+    }
+    
     private ContentDto convertEntityToDto(Content content) {
         return ContentDto.builder()
                 .id(content.getId())

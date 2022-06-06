@@ -43,17 +43,20 @@ public class ContentsControllerImpl implements ContentsController {
                 .body(this.service.create(contentDto));
     }
 
-	@Override
-	public ResponseEntity<Void> deleteContent(String id) {
-		return ResponseEntity
-				.status(HttpStatus.NO_CONTENT)
-				.build();
-	}
+    @Override
+    public ResponseEntity<Void> deleteContent(String id) {
+        this.service.deleteById(id);
 
-	@Override
-	public ResponseEntity<ContentDto> PatchContent(String id) {
-		return ResponseEntity
-				.status(HttpStatus.OK)
-				.build();
-	}
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .build();
+    }
+
+    @Override
+    public ResponseEntity<ContentDto> PatchContent(String id, ContentDto contentDto) {
+        contentDto.setId(id);
+
+        return ResponseEntity
+                .ok(this.service.patchUpdate(contentDto));
+    }
 }

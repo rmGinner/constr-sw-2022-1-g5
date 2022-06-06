@@ -12,4 +12,8 @@ public interface ContentService {
     List<ContentDto> getBy(String contentId);
 
     Optional<ContentDto> getContentById(String id);
+    
+    void deleteById(String id);
+
+    ContentDto patchUpdate(ContentDto patchContentDto);
 }

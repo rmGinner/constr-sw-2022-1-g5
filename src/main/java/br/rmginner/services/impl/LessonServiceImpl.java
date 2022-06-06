@@ -1,5 +1,16 @@
 package br.rmginner.services.impl;
 
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
+
 import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 import br.rmginner.entities.Content;
@@ -9,16 +20,6 @@ import br.rmginner.remotes.classservice.dto.ClassDto;
 import br.rmginner.repositories.LessonsRepository;
 import br.rmginner.services.LessonService;
 import br.rmginner.utils.BusinessException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
-
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class LessonServiceImpl implements LessonService {

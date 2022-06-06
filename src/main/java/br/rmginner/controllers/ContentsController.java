@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,9 +36,9 @@ public interface ContentsController {
     @ApiOperation("Delete a content by ID.")
     @DeleteMapping("{id}")
     ResponseEntity<Void> deleteContent(@PathVariable String id);
-    
+
     @ApiOperation("Patch a content by ID.")
     @PatchMapping("{id}")
-    ResponseEntity<ContentDto> PatchContent(@PathVariable String id);
+    ResponseEntity<ContentDto> PatchContent(@PathVariable String id, @RequestBody ContentDto contentDto);
     
 }
