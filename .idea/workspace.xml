@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="091ee7ca-ee7f-4a78-b0b7-278b0e48ad50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/utils/BusinessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/configurations/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/configurations/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Lesson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/interceptors/ResponseErrorInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/interceptors/ResponseErrorInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/ContentsControllerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/remotes/contentservice/dto/ContentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/repositories/ContentsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/ContentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/ContentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/ContentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/ContentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Content.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Content.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/services/impl/LessonServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/services/impl/LessonServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
