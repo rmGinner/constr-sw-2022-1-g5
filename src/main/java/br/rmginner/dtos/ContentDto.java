@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class ContentDto {
 
+	private String id;
+	
     @NotBlank(message = "Nome do conteúdo obrigatório")
     private String name;
 
