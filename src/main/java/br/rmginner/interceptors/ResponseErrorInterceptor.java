@@ -1,5 +1,6 @@
 package br.rmginner.interceptors;
 
+import br.rmginner.utils.BusinessException;
 import br.rmginner.utils.ResponseError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +40,16 @@ public class ResponseErrorInterceptor {
 
         Map<String, String> errors = new HashMap<>();
         errors.put("body", "Invalid request body format.");
+        return ResponseEntity
+                .badRequest()
+                .body(ResponseError.builder().errors(errors).status(HttpStatus.BAD_REQUEST.value()).build());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ResponseError> handleBusinessException(BusinessException ex) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("body", ex.getMessage());
         return ResponseEntity
                 .badRequest()
                 .body(ResponseError.builder().errors(errors).status(HttpStatus.BAD_REQUEST.value()).build());

@@ -96,7 +96,7 @@ class LessonsControllerImplTest {
     void shouldCreateLesson() {
         Mockito.doReturn(getTestLesson())
                 .when(service)
-                .create(getTestLesson());
+                .save(getTestLesson());
 
         RestAssuredMockMvc.given()
                 .auth().none()
@@ -119,7 +119,7 @@ class LessonsControllerImplTest {
 
         Mockito.doReturn(lesson)
                 .when(service)
-                .create(lesson);
+                .save(lesson);
 
         lesson.setDate(null);
         lesson.setName(null);

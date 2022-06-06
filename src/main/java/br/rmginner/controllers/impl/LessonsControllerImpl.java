@@ -1,18 +1,15 @@
 package br.rmginner.controllers.impl;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
+import br.rmginner.controllers.LessonsController;
+import br.rmginner.dtos.LessonDto;
+import br.rmginner.services.LessonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.rmginner.controllers.LessonsController;
-import br.rmginner.dtos.LessonDto;
-import br.rmginner.services.LessonService;
+import java.util.List;
 
 @RestController
 public class LessonsControllerImpl implements LessonsController {
@@ -37,23 +34,28 @@ public class LessonsControllerImpl implements LessonsController {
     }
 
     @Override
-    public ResponseEntity<LessonDto> createLesson(@Valid @RequestBody LessonDto classDto) {
+    public ResponseEntity<LessonDto> createLesson(@RequestBody LessonDto classDto) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(this.service.create(classDto));
+                .body(this.service.save(classDto));
     }
 
-	@Override
-	public ResponseEntity<Void> deleteLesson(String id) {
-		return ResponseEntity
-				.status(HttpStatus.NO_CONTENT)
-				.build();
-	}
+    @Override
+    public ResponseEntity<Void> deleteLesson(String id) {
+        this.service.deleteById(id);
 
-	@Override
-	public ResponseEntity<LessonDto> PatchLesson(String id) {
-		return ResponseEntity
-				.status(HttpStatus.OK)
-				.build();
-	}
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .build();
+    }
+
+    @Override
+    public ResponseEntity<LessonDto> PatchLesson(String id, LessonDto classDto) {
+        classDto.setId(id);
+
+        return ResponseEntity
+                .ok(this.service.patchUpdate(classDto));
+    }
+
+
 }

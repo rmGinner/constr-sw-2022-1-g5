@@ -50,7 +50,7 @@ class LessonServiceImplTest {
         Mockito.when(repository.save(lessonToSave))
                 .thenReturn(savedLesson);
 
-        final var createdLessonDto = service.create(getTestLessonDto());
+        final var createdLessonDto = service.save(getTestLessonDto());
 
         Assertions.assertEquals(TEST_ID, createdLessonDto.getId());
     }

@@ -25,4 +25,6 @@ public class Lesson {
     private String buildingId;
 
     private List<Content> contents;
+
+    private boolean isEnabled;
 }
