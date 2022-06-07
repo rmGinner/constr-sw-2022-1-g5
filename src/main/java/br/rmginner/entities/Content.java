@@ -20,4 +20,6 @@ public class Content {
     private ContentType type;
 
     private String link;
+    
+    private boolean isEnabled;
 }

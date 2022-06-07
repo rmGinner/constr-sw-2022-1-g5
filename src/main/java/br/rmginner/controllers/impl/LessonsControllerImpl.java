@@ -1,8 +1,8 @@
 package br.rmginner.controllers.impl;
 
 import br.rmginner.controllers.LessonsController;
+import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
-import br.rmginner.services.ContentService;
 import br.rmginner.services.LessonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class LessonsControllerImpl implements LessonsController {
 
     private final LessonService service;
 
-    public LessonsControllerImpl(LessonService classService, ContentService contentService) {
+    public LessonsControllerImpl(LessonService classService) {
         this.service = classService;
     }
 
@@ -58,5 +59,17 @@ public class LessonsControllerImpl implements LessonsController {
                 .ok(this.service.patchUpdate(classDto));
     }
 
+    @Override
+    public ResponseEntity<LessonDto> getAllContentsFromLesson(String lessonId) {
+        final var foundLesson = this.service.getAllContentsFromLesson(lessonId);
 
+        return Objects.isNull(foundLesson) ? ResponseEntity.noContent().build() : ResponseEntity.ok(foundLesson);
+    }
+
+    @Override
+    public ResponseEntity<LessonDto> createLessonContent(String lessonId, ContentDto contentDto) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(this.service.saveContentForLesson(lessonId, contentDto));
+    }
 }

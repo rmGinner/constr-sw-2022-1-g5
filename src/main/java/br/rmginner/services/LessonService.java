@@ -1,5 +1,6 @@
 package br.rmginner.services;
 
+import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 
 import java.util.List;
@@ -16,5 +17,9 @@ public interface LessonService {
     void deleteById(String id);
 
     LessonDto patchUpdate(LessonDto patchLessonDto);
+
+    LessonDto getAllContentsFromLesson(String lessonId);
+
+    LessonDto saveContentForLesson(String lessonId, ContentDto lessonContent);
 }
 

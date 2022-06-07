@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,12 +18,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @Api(tags = "Contents Service", value = "test", description = "Service to manage contents and their contents.")
-@RequestMapping("{id}/contents")
+@RequestMapping("/contents")
 public interface ContentsController {
 
 	@ApiOperation("Get all contents")
     @GetMapping
-    ResponseEntity<List<ContentDto>> getContentsBy(@Nullable @RequestParam String contentId);
+    ResponseEntity<List<ContentDto>> getContentsBy();
 
     @ApiOperation("Get content by ID")
     @GetMapping("{id}")
@@ -35,9 +36,9 @@ public interface ContentsController {
     @ApiOperation("Delete a content by ID.")
     @DeleteMapping("{id}")
     ResponseEntity<Void> deleteContent(@PathVariable String id);
-    
+
     @ApiOperation("Patch a content by ID.")
     @PatchMapping("{id}")
-    ResponseEntity<ContentDto> patchContent(@PathVariable String id);
+    ResponseEntity<ContentDto> patchContent(@PathVariable String id, @RequestBody ContentDto contentDto);
     
 }

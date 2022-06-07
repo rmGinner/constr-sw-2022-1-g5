@@ -1,5 +1,6 @@
 package br.rmginner.controllers;
 
+import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Api(tags = "Lessons Service", value = "lessons", description = "Service to manage lessons.")
-@RequestMapping
+@RequestMapping("/lessons")
 public interface LessonsController {
 
     @ApiOperation("Get all lessons")
@@ -40,5 +41,13 @@ public interface LessonsController {
     @ApiOperation("Patch a lesson by ID.")
     @PatchMapping("{id}")
     ResponseEntity<LessonDto> patchLesson(@PathVariable String id, @RequestBody LessonDto classDto);
+
+    @ApiOperation("Get all contents from lesson")
+    @GetMapping("{lessonId}/contents")
+    ResponseEntity<LessonDto> getAllContentsFromLesson(@PathVariable String lessonId);
+
+    @ApiOperation("Create a new content for a lesson.")
+    @PostMapping("{lessonId}/contents")
+    ResponseEntity<LessonDto> createLessonContent(@PathVariable String lessonId, @Valid @RequestBody ContentDto contentDto);
 
 }

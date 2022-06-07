@@ -38,19 +38,25 @@ public class LessonServiceImpl implements LessonService {
             dto.setId(null);
         }
 
-        List<ContentDto> savedContents = null;
+        List<ContentDto> savedContents = dto.getContents();
 
-        if (!CollectionUtils.isEmpty(dto.getContents())) {
-            savedContents = this.contentService.saveAll(dto.getContents());
-        }
-
-        dto.setContents(savedContents);
+        dto.setContents(null);
 
         final var lessonEntity = this.repository.save(this.convertDtoToEntity(dto));
 
+
+        if (!CollectionUtils.isEmpty(savedContents)) {
+            dto.setContents(this.contentService.saveAll(savedContents));
+        }
+
         dto.setId(lessonEntity.getId());
+
+        this.repository.save(this.convertDtoToEntity(dto));
+
+
         dto.setClassDto(mockClassFromRemoteService(lessonEntity.getClassId()));
         dto.setBuilding(mockBuildingFromRemoteService(lessonEntity.getBuildingId()));
+
 
         return dto;
     }
@@ -67,7 +73,9 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public Optional<LessonDto> getLessonById(String id) {
-        return this.repository.findById(id).filter(Lesson::isEnabled).map(this::convertEntityToDto);
+        final var example = Example.of(Lesson.builder().isEnabled(true).id(id).build());
+
+        return this.repository.findOne(example).map(this::convertEntityToDto);
     }
 
     @Override
@@ -97,6 +105,44 @@ public class LessonServiceImpl implements LessonService {
         lessonUpdated = this.repository.save(lessonUpdated);
 
         return convertEntityToDto(lessonUpdated);
+    }
+
+    @Override
+    public LessonDto getAllContentsFromLesson(String lessonId) {
+        final var foundLesson = this.repository.findOne(Example.of(Lesson.builder().isEnabled(true).id(lessonId).build()));
+
+        if (foundLesson.isPresent() && !CollectionUtils.isEmpty(foundLesson.get().getContents())) {
+            final var lesson = foundLesson.get();
+            final var lessonEnabledContents = foundLesson.get().getContents().stream().filter(Content::isEnabled).collect(Collectors.toList());
+
+            lesson.setContents(lessonEnabledContents);
+
+            return convertEntityToDto(lesson);
+        }
+
+        return null;
+    }
+
+    @Override
+    public LessonDto saveContentForLesson(String lessonId, ContentDto lessonContent) {
+        final var foundLessonOpt = this.repository.findOne(Example.of(Lesson.builder().isEnabled(true).id(lessonId).build()));
+
+        if (Objects.nonNull(lessonContent.getId()) && Objects.nonNull(contentService.getContentById(lessonContent.getId()))) {
+            throw new BusinessException("Já existe um conteúdo com este ID.");
+        }
+
+        if (foundLessonOpt.isPresent()) {
+            final var foundLesson = foundLessonOpt.get();
+            final var savedContent = contentService.saveAll(List.of(lessonContent));
+
+            foundLesson.getContents().add(convertContentDtoToEntity(savedContent.get(0)));
+
+            final var savedLesson = this.repository.save(foundLesson);
+
+            return convertEntityToDto(savedLesson);
+        }
+
+        return null;
     }
 
     private void updateEntityFromDto(LessonDto lessonDto, Lesson lesson) {
@@ -131,6 +177,7 @@ public class LessonServiceImpl implements LessonService {
                         lesson.getContents()
                                 .stream()
                                 .map(content -> ContentDto.builder()
+                                        .id(content.getId())
                                         .name(content.getName())
                                         .type(content.getType())
                                         .link(content.getLink())
@@ -141,11 +188,12 @@ public class LessonServiceImpl implements LessonService {
     }
 
     private Lesson convertDtoToEntity(LessonDto dto) {
-        final var contentEntities = dto.getContents()
-                .stream()
-                .map(this::convertContentDtoToEntity
-                )
-                .collect(Collectors.toList());
+        final List<Content> contentEntities = CollectionUtils.isEmpty(dto.getContents()) ? List.of() :
+                dto.getContents()
+                        .stream()
+                        .map(this::convertContentDtoToEntity
+                        )
+                        .collect(Collectors.toList());
 
         return Lesson.builder()
                 .id(dto.getId())
@@ -160,10 +208,10 @@ public class LessonServiceImpl implements LessonService {
 
     private Content convertContentDtoToEntity(ContentDto contentDto) {
         return Content.builder()
+                .id(contentDto.getId())
                 .name(contentDto.getName())
                 .type(contentDto.getType())
                 .link(contentDto.getLink())
                 .build();
     }
-
 }

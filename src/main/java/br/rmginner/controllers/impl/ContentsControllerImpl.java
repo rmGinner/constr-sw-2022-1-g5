@@ -24,8 +24,8 @@ public class ContentsControllerImpl implements ContentsController {
     }
 
     @Override
-    public ResponseEntity<List<ContentDto>> getContentsBy(String contentId) {
-        final var foundContents = this.service.getBy(contentId);
+    public ResponseEntity<List<ContentDto>> getContentsBy() {
+        final var foundContents = this.service.getBy();
         return CollectionUtils.isEmpty(foundContents) ? ResponseEntity.noContent().build() : ResponseEntity.ok(foundContents);
     }
 
@@ -43,17 +43,20 @@ public class ContentsControllerImpl implements ContentsController {
                 .body(this.service.create(contentDto));
     }
 
-	@Override
-	public ResponseEntity<Void> deleteContent(String id) {
-		return ResponseEntity
-				.status(HttpStatus.NO_CONTENT)
-				.build();
-	}
+    @Override
+    public ResponseEntity<Void> deleteContent(String id) {
+        this.service.deleteById(id);
 
-	@Override
-	public ResponseEntity<ContentDto> patchContent(String id) {
-		return ResponseEntity
-				.status(HttpStatus.OK)
-				.build();
-	}
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .build();
+    }
+
+    @Override
+    public ResponseEntity<ContentDto> patchContent(String id, ContentDto contentDto) {
+        contentDto.setId(id);
+
+        return ResponseEntity
+                .ok(this.service.patchUpdate(contentDto));
+    }
 }

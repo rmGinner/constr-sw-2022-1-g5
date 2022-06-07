@@ -1,6 +1,7 @@
 package br.rmginner.dtos;
 
 import br.rmginner.entities.enums.ContentType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
@@ -12,8 +13,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class ContentDto {
 
-	private String id;
-	
+    private String id;
+
     @NotBlank(message = "Nome do conteúdo obrigatório")
     private String name;
 
