@@ -16,6 +16,7 @@ public class SwaggerConfig {
                 .apiInfo(
                         new ApiInfo("Lessons API", "API to manage lessons and their contents.", "1.0.0", null, null, null, null)
                 )
+                .useDefaultResponseMessages(false)
                 .select()
                 .paths(PathSelectors.any())
                 .apis(RequestHandlerSelectors.basePackage("br.rmginner"))

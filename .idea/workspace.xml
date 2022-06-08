@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="091ee7ca-ee7f-4a78-b0b7-278b0e48ad50" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/configurations/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/configurations/SwaggerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/ContentsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/ContentsControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/ContentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/ContentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Content.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/entities/Content.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/ContentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/ContentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/LessonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/LessonDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/ContentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/ContentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/utils/ResponseError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/utils/ResponseError.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +32,7 @@
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -88,7 +88,7 @@
     <configuration name="LessonsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.rmginner.LessonsServiceApplication" />
       <module name="constr-sw-2022-1-g5" />
-      <option name="VM_PARAMETERS" value="-Dspring.data.mongodb.uri=mongodb://root:qwe123@ec2-44-193-219-248.compute-1.amazonaws.com:27017/lessons?authSource=admin" />
+      <option name="VM_PARAMETERS" value="-Dspring.data.mongodb.uri=mongodb://root:qwe123@ec2-3-227-23-7.compute-1.amazonaws.com:27017/lessons?authSource=admin" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="br.rmginner.*" />

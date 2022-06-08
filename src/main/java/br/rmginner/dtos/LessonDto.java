@@ -4,6 +4,7 @@ import br.rmginner.remotes.buildingservice.dto.BuildingDto;
 import br.rmginner.remotes.classservice.dto.ClassDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Data;
 

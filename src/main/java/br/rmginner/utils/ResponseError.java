@@ -9,7 +9,5 @@ import java.util.Map;
 @Data
 public class ResponseError {
 
-    private int status;
-
     private Map<String, String> errors;
 }

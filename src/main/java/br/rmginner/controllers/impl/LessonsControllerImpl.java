@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 public class LessonsControllerImpl implements LessonsController {
@@ -60,10 +59,10 @@ public class LessonsControllerImpl implements LessonsController {
     }
 
     @Override
-    public ResponseEntity<LessonDto> getAllContentsFromLesson(String lessonId) {
-        final var foundLesson = this.service.getAllContentsFromLesson(lessonId);
+    public ResponseEntity<List<ContentDto>> getAllContentsFromLesson(String lessonId) {
+        final var contents = this.service.getAllContentsFromLesson(lessonId);
 
-        return Objects.isNull(foundLesson) ? ResponseEntity.noContent().build() : ResponseEntity.ok(foundLesson);
+        return CollectionUtils.isEmpty(contents) ? ResponseEntity.noContent().build() : ResponseEntity.ok(contents);
     }
 
     @Override

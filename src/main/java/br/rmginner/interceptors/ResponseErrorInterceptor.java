@@ -30,7 +30,7 @@ public class ResponseErrorInterceptor {
         });
         return ResponseEntity
                 .badRequest()
-                .body(ResponseError.builder().errors(errors).status(HttpStatus.BAD_REQUEST.value()).build());
+                .body(ResponseError.builder().errors(errors).build());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -42,7 +42,7 @@ public class ResponseErrorInterceptor {
         errors.put("body", "Invalid request body format.");
         return ResponseEntity
                 .badRequest()
-                .body(ResponseError.builder().errors(errors).status(HttpStatus.BAD_REQUEST.value()).build());
+                .body(ResponseError.builder().errors(errors).build());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -52,7 +52,7 @@ public class ResponseErrorInterceptor {
         errors.put("body", ex.getMessage());
         return ResponseEntity
                 .badRequest()
-                .body(ResponseError.builder().errors(errors).status(HttpStatus.BAD_REQUEST.value()).build());
+                .body(ResponseError.builder().errors(errors).build());
     }
 
 }

@@ -18,7 +18,7 @@ public interface LessonService {
 
     LessonDto patchUpdate(LessonDto patchLessonDto);
 
-    LessonDto getAllContentsFromLesson(String lessonId);
+    List<ContentDto> getAllContentsFromLesson(String lessonId);
 
     LessonDto saveContentForLesson(String lessonId, ContentDto lessonContent);
 }

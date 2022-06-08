@@ -108,19 +108,12 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
-    public LessonDto getAllContentsFromLesson(String lessonId) {
+    public List<ContentDto> getAllContentsFromLesson(String lessonId) {
         final var foundLesson = this.repository.findOne(Example.of(Lesson.builder().isEnabled(true).id(lessonId).build()));
 
-        if (foundLesson.isPresent() && !CollectionUtils.isEmpty(foundLesson.get().getContents())) {
-            final var lesson = foundLesson.get();
-            final var lessonEnabledContents = foundLesson.get().getContents().stream().filter(Content::isEnabled).collect(Collectors.toList());
-
-            lesson.setContents(lessonEnabledContents);
-
-            return convertEntityToDto(lesson);
-        }
-
-        return null;
+        return foundLesson.isPresent() && !CollectionUtils.isEmpty(foundLesson.get().getContents()) ?
+                foundLesson.get().getContents().stream().filter(Content::isEnabled).map(this::convertContentEntityToDto).collect(Collectors.toList()) :
+                null;
     }
 
     @Override
@@ -212,6 +205,15 @@ public class LessonServiceImpl implements LessonService {
                 .name(contentDto.getName())
                 .type(contentDto.getType())
                 .link(contentDto.getLink())
+                .build();
+    }
+
+    private ContentDto convertContentEntityToDto(Content content) {
+        return ContentDto.builder()
+                .id(content.getId())
+                .name(content.getName())
+                .type(content.getType())
+                .link(content.getLink())
                 .build();
     }
 }
