@@ -26,7 +26,6 @@ public interface ContentsController {
             @ApiResponse(code = 401, message = "Unauthorized."),
             @ApiResponse(code = 404, message = "Not found route."),
     })
-    @ResponseStatus(code = HttpStatus.OK, reason = "Get all contents")
     @GetMapping
     ResponseEntity<List<ContentDto>> getContentsBy();
 
@@ -35,7 +34,6 @@ public interface ContentsController {
             @ApiResponse(code = 401, message = "Unauthorized."),
             @ApiResponse(code = 404, message = "Not found route."),
     })
-    @ResponseStatus(code = HttpStatus.OK, reason = "Get content by ID")
     @GetMapping("{id}")
     ResponseEntity<ContentDto> getContentById(@PathVariable String id);
 
@@ -44,7 +42,6 @@ public interface ContentsController {
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 404, message = "Not found route"),
     })
-    @ResponseStatus(code = HttpStatus.CREATED, reason = "Create a new content.")
     @PostMapping
     ResponseEntity<ContentDto> createContent(ContentDto contentDto);
 
@@ -53,7 +50,6 @@ public interface ContentsController {
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 404, message = "Not found route"),
     })
-    @ResponseStatus(code = HttpStatus.NO_CONTENT, reason = "Delete a content by ID.")
     @DeleteMapping("{id}")
     ResponseEntity<Void> deleteContent(@PathVariable String id);
 
@@ -62,7 +58,6 @@ public interface ContentsController {
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 404, message = "Not found route"),
     })
-    @ResponseStatus(code = HttpStatus.OK, reason = "Patch a content by ID.")
     @PatchMapping("{id}")
     ResponseEntity<ContentDto> patchContent(@PathVariable String id, @RequestBody ContentDto contentDto);
 

@@ -30,7 +30,6 @@ public interface LessonsController {
             @ApiResponse(code = 401, message = "Unauthorized."),
             @ApiResponse(code = 404, message = "Not found route."),
     })
-    @ResponseStatus(code = HttpStatus.OK, reason = "Get all lessons")
     @GetMapping
     ResponseEntity<List<LessonDto>> getLessonsBy(@Nullable @RequestParam String classId);
 
@@ -39,7 +38,6 @@ public interface LessonsController {
             @ApiResponse(code = 401, message = "Unauthorized."),
             @ApiResponse(code = 404, message = "Not found route."),
     })
-    @ResponseStatus(code = HttpStatus.OK, reason = "Get lesson by ID")
     @GetMapping("{id}")
     ResponseEntity<LessonDto> getLessonById(@PathVariable String id);
 
@@ -48,7 +46,6 @@ public interface LessonsController {
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 404, message = "Not found route"),
     })
-    @ResponseStatus(code = HttpStatus.CREATED, reason = "Create a new lesson.")
     @PostMapping
     ResponseEntity<LessonDto> createLesson(@Valid @RequestBody LessonDto classDto);
 
@@ -57,7 +54,6 @@ public interface LessonsController {
             @ApiResponse(code = 401, message = "Unauthorized."),
             @ApiResponse(code = 404, message = "Not found route."),
     })
-    @ResponseStatus(code = HttpStatus.NO_CONTENT, reason = "Delete a lesson by ID.")
     @DeleteMapping("{id}")
     ResponseEntity<Void> deleteLesson(@PathVariable String id);
 
@@ -66,7 +62,6 @@ public interface LessonsController {
             @ApiResponse(code = 401, message = "Unauthorized."),
             @ApiResponse(code = 404, message = "Not found route."),
     })
-    @ResponseStatus(code = HttpStatus.OK, reason = "Patch a lesson by ID.")
     @PatchMapping("{id}")
     ResponseEntity<LessonDto> patchLesson(@PathVariable String id, @RequestBody LessonDto classDto);
 
@@ -75,7 +70,6 @@ public interface LessonsController {
             @ApiResponse(code = 401, message = "Unauthorized."),
             @ApiResponse(code = 404, message = "Not found route."),
     })
-    @ResponseStatus(code = HttpStatus.OK, reason = "Get all contents from lesson.")
     @GetMapping("{lessonId}/contents")
     ResponseEntity<List<ContentDto>> getAllContentsFromLesson(@PathVariable String lessonId);
 
@@ -84,7 +78,6 @@ public interface LessonsController {
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 404, message = "Not found route"),
     })
-    @ResponseStatus(code = HttpStatus.CREATED, reason = "Create a new content for a lesson.")
     @PostMapping("{lessonId}/contents")
     ResponseEntity<LessonDto> createLessonContent(@PathVariable String lessonId, @Valid @RequestBody ContentDto contentDto);
 
