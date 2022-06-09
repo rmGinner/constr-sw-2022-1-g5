@@ -17,8 +17,8 @@ public class LessonsControllerImpl implements LessonsController {
 
     private final LessonService service;
 
-    public LessonsControllerImpl(LessonService classService) {
-        this.service = classService;
+    public LessonsControllerImpl(LessonService lessonService) {
+        this.service = lessonService;
     }
 
     @Override
@@ -35,10 +35,10 @@ public class LessonsControllerImpl implements LessonsController {
     }
 
     @Override
-    public ResponseEntity<LessonDto> createLesson(@RequestBody LessonDto classDto) {
+    public ResponseEntity<LessonDto> createLesson(@RequestBody LessonDto lessonDto) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(this.service.save(classDto));
+                .body(this.service.save(lessonDto));
     }
 
     @Override
@@ -51,11 +51,11 @@ public class LessonsControllerImpl implements LessonsController {
     }
 
     @Override
-    public ResponseEntity<LessonDto> patchLesson(String id, LessonDto classDto) {
-        classDto.setId(id);
+    public ResponseEntity<LessonDto> patchLesson(String id, LessonDto lessonDto) {
+        lessonDto.setId(id);
 
         return ResponseEntity
-                .ok(this.service.patchUpdate(classDto));
+                .ok(this.service.patchUpdate(lessonDto));
     }
 
     @Override

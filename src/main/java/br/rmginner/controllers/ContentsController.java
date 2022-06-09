@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Api(tags = "Contents Service", value = "test", description = "Service to manage lesson contents.")
@@ -46,7 +47,7 @@ public interface ContentsController {
     })
     @ResponseStatus(code = HttpStatus.CREATED, reason = "Create a new content.")
     @PostMapping
-    ResponseEntity<ContentDto> createContent(ContentDto contentDto);
+    ResponseEntity<ContentDto> createContent(@Valid @RequestBody ContentDto contentDto);
 
     @ApiResponses({
             @ApiResponse(code = 400, message = "Business rule error."),
@@ -64,6 +65,6 @@ public interface ContentsController {
     })
     @ResponseStatus(code = HttpStatus.OK, reason = "Patch a content by ID.")
     @PatchMapping("{id}")
-    ResponseEntity<ContentDto> patchContent(@PathVariable String id, @RequestBody ContentDto contentDto);
+    ResponseEntity<ContentDto> patchContent(@PathVariable String id, @Valid @RequestBody ContentDto contentDto);
 
 }

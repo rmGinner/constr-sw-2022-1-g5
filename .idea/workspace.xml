@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="091ee7ca-ee7f-4a78-b0b7-278b0e48ad50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/configurations/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/configurations/SwaggerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/ContentsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/LessonsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/controllers/impl/LessonsControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/LessonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/dtos/LessonDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/LessonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/services/impl/LessonServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/rmginner/utils/ResponseError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/rmginner/utils/ResponseError.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

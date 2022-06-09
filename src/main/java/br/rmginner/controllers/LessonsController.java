@@ -3,6 +3,7 @@ package br.rmginner.controllers;
 import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
@@ -32,7 +33,11 @@ public interface LessonsController {
     })
     @ResponseStatus(code = HttpStatus.OK, reason = "Get all lessons")
     @GetMapping
-    ResponseEntity<List<LessonDto>> getLessonsBy(@Nullable @RequestParam String classId);
+    ResponseEntity<List<LessonDto>> getLessonsBy(
+            @ApiParam(name = "classId",value = "ID of class")
+            @Nullable
+            @RequestParam(required = false) String classId
+    );
 
     @ApiResponses({
             @ApiResponse(code = 204, message = "Lesson was not found."),
@@ -50,7 +55,7 @@ public interface LessonsController {
     })
     @ResponseStatus(code = HttpStatus.CREATED, reason = "Create a new lesson.")
     @PostMapping
-    ResponseEntity<LessonDto> createLesson(@Valid @RequestBody LessonDto classDto);
+    ResponseEntity<LessonDto> createLesson(@Valid @RequestBody LessonDto lessonDto);
 
     @ApiResponses({
             @ApiResponse(code = 400, message = "Business rule error."),
@@ -68,7 +73,7 @@ public interface LessonsController {
     })
     @ResponseStatus(code = HttpStatus.OK, reason = "Patch a lesson by ID.")
     @PatchMapping("{id}")
-    ResponseEntity<LessonDto> patchLesson(@PathVariable String id, @RequestBody LessonDto classDto);
+    ResponseEntity<LessonDto> patchLesson(@PathVariable String id, @RequestBody LessonDto lessonDto);
 
     @ApiResponses({
             @ApiResponse(code = 204, message = "No contents from lesson found."),
