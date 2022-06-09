@@ -16,7 +16,7 @@ paths:
     get:
       tags:
         - Contents Service
-      summary: getContentsBy
+      summary: Get all contents
       operationId: getContentsByUsingGET
       produces:
         - '*/*'
@@ -36,7 +36,7 @@ paths:
     post:
       tags:
         - Contents Service
-      summary: createContent
+      summary: Create a new content
       operationId: createContentUsingPOST
       consumes:
         - application/json
@@ -44,8 +44,8 @@ paths:
         - '*/*'
       parameters:
         - in: body
-          name: contentDto
-          description: contentDto
+          name: Content
+          description: content data
           required: true
           schema:
             $ref: '#/definitions/ContentDto'
@@ -66,14 +66,14 @@ paths:
     get:
       tags:
         - Contents Service
-      summary: getContentById
+      summary: Get content by ID
       operationId: getContentByIdUsingGET
       produces:
         - '*/*'
       parameters:
         - name: id
           in: path
-          description: id
+          description: Content id
           required: true
           type: string
       responses:
@@ -90,14 +90,14 @@ paths:
     delete:
       tags:
         - Contents Service
-      summary: deleteContent
+      summary: Delete a content by ID
       operationId: deleteContentUsingDELETE
       produces:
         - '*/*'
       parameters:
         - name: id
           in: path
-          description: id
+          description: Content id
           required: true
           type: string
       responses:
@@ -114,7 +114,7 @@ paths:
     patch:
       tags:
         - Contents Service
-      summary: patchContent
+      summary: Update partially an existing content
       operationId: patchContentUsingPATCH
       consumes:
         - application/json
@@ -122,14 +122,14 @@ paths:
         - '*/*'
       parameters:
         - in: body
-          name: contentDto
-          description: contentDto
+          name: Content
+          description: Content data
           required: true
           schema:
             $ref: '#/definitions/ContentDto'
         - name: id
           in: path
-          description: id
+          description: Content id
           required: true
           type: string
       responses:
@@ -149,15 +149,15 @@ paths:
     get:
       tags:
         - Lessons Service
-      summary: getLessonsBy
+      summary: Get all lessons or search lessons by filters
       operationId: getLessonsByUsingGET
       produces:
         - '*/*'
       parameters:
         - name: classId
           in: query
-          description: classId
-          required: true
+          description: Class ID filter
+          required: false
           type: string
       responses:
         '200':
@@ -175,7 +175,7 @@ paths:
     post:
       tags:
         - Lessons Service
-      summary: createLesson
+      summary: Create a new lesson
       operationId: createLessonUsingPOST
       consumes:
         - application/json
@@ -183,8 +183,8 @@ paths:
         - '*/*'
       parameters:
         - in: body
-          name: classDto
-          description: classDto
+          name: lesson
+          description: Lesson Data
           required: true
           schema:
             $ref: '#/definitions/LessonDto'
@@ -205,7 +205,7 @@ paths:
     get:
       tags:
         - Lessons Service
-      summary: getLessonById
+      summary: Get lesson by ID
       operationId: getLessonByIdUsingGET
       produces:
         - '*/*'
@@ -229,7 +229,7 @@ paths:
     delete:
       tags:
         - Lessons Service
-      summary: deleteLesson
+      summary: Delete a lesson by ID
       operationId: deleteLessonUsingDELETE
       produces:
         - '*/*'
@@ -253,7 +253,7 @@ paths:
     patch:
       tags:
         - Lessons Service
-      summary: patchLesson
+      summary: Update partially an existing lesson.
       operationId: patchLessonUsingPATCH
       consumes:
         - application/json
@@ -261,8 +261,8 @@ paths:
         - '*/*'
       parameters:
         - in: body
-          name: classDto
-          description: classDto
+          name: Lesson
+          description: Lesson content
           required: true
           schema:
             $ref: '#/definitions/LessonDto'
@@ -288,14 +288,14 @@ paths:
     get:
       tags:
         - Lessons Service
-      summary: getAllContentsFromLesson
+      summary: Get all contents for a lesson identified by ID.
       operationId: getAllContentsFromLessonUsingGET
       produces:
         - '*/*'
       parameters:
         - name: lessonId
           in: path
-          description: lessonId
+          description: Lesson ID
           required: true
           type: string
       responses:
@@ -314,7 +314,7 @@ paths:
     post:
       tags:
         - Lessons Service
-      summary: createLessonContent
+      summary: Create a new lesson content.
       operationId: createLessonContentUsingPOST
       consumes:
         - application/json
@@ -322,8 +322,8 @@ paths:
         - '*/*'
       parameters:
         - in: body
-          name: contentDto
-          description: contentDto
+          name: Content
+          description: Lesson content data
           required: true
           schema:
             $ref: '#/definitions/ContentDto'

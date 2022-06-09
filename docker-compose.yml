@@ -11,22 +11,24 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: "qwe123"
     volumes:
       - mongo:/data/db
-#  lessons-service:
-#    container_name: 'lesson-service'
-#    build: .
-#    environment:
-#      spring.data.mongodb.uri: 'mongodb://root:qwe123@mongodb:27017/lessons?authSource=admin'
-#      server.port: 8085
-#    ports:
-#      - 8085:8085
-#    depends_on:
-#      - mongodb
-#  swagger:
-#    container_name: swagger
-#    image: swaggerapi/swagger-ui
-#    ports:
-#      - 8080:8080
-#    environment:
-#      SWAGGER_JSON: /swagger.json
+  lessons-service:
+    container_name: 'lesson-service'
+    build: .
+    environment:
+      spring.data.mongodb.uri: 'mongodb://root:qwe123@mongodb:27017/lessons?authSource=admin'
+      server.port: 8085
+    ports:
+      - 8085:8085
+    depends_on:
+      - mongodb
+  swagger:
+    container_name: swagger
+    image: swaggerapi/swagger-ui
+    volumes:
+      - ./swagger.yml:/swagger.yml
+    ports:
+      - 8080:8080
+    environment:
+      SWAGGER_JSON: /swagger.yml
 volumes:
   mongo:
