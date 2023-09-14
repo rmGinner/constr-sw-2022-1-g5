@@ -5,40 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="091ee7ca-ee7f-4a78-b0b7-278b0e48ad50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_ci_environment_9_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_core_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_expressions_16_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_gherkin_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_gherkin_messages_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_java_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_junit_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_plugin_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_cucumber_spring_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_datatable_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_docstring_7_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_gherkin_26_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_html_formatter_20_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_junit_xml_formatter_0_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_messages_22_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_cucumber_tag_expressions_5_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_integration_spring_integration_core_5_5_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_integration_spring_integration_test_5_5_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_integration_spring_integration_test_support_5_5_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_3_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/CucumberIntegrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/ContentStepDefinitions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/gherkin/content.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/ParameterTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/content/ContentIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constr-sw-2022-1-g5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/constr-sw-2022-1-g5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/CucumberIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/ContentStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/content/ContentStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/gherkin/content.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gherkin/content.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +61,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../development/open-banking/sicredi/openfinance-sensedia-payment-collector" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
@@ -110,29 +82,22 @@
       <recent name="br.rmginner.configurations" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.rmginner.gherkin" />
       <recent name="br.rmginner.dtos" />
       <recent name="br.rmginner.remotes.buildingservice.dto" />
       <recent name="br.rmginner.remotes.classservice.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in constr-sw-2022-1-g5 (2)">
+  <component name="RunManager" selected="JUnit.ContentIntegrationTest">
     <configuration name="LessonsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.rmginner.LessonsServiceApplication" />
       <module name="constr-sw-2022-1-g5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.rmginner.*" />
+          <option name="PATTERN" value="br.rmginner.gherkin.content.ContentStepDefinitions" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in constr-sw-2022-1-g5 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="constr-sw-2022-1-g5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,10 +110,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in constr-sw-2022-1-g5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContentIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="constr-sw-2022-1-g5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.rmginner.gherkin.content.ContentStepDefinitions" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.rmginner.gherkin.content" />
+      <option name="MAIN_CLASS_NAME" value="br.rmginner.gherkin.content.ContentIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContentStepDefinitionsTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="constr-sw-2022-1-g5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.rmginner.gherkin.content.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.rmginner.gherkin" />
+      <option name="MAIN_CLASS_NAME" value="br.rmginner.gherkin.ContentStepDefinitionsTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LessonsControllerImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="constr-sw-2022-1-g5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.rmginner.controllers.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.rmginner.controllers.impl" />
+      <option name="MAIN_CLASS_NAME" value="br.rmginner.controllers.impl.LessonsControllerImplTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -162,16 +165,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.LessonsServiceApplication" />
-      <item itemvalue="JUnit.All in constr-sw-2022-1-g5" />
-      <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (1)" />
       <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (2)" />
+      <item itemvalue="JUnit.ContentStepDefinitionsTest.test" />
+      <item itemvalue="JUnit.ContentIntegrationTest" />
+      <item itemvalue="JUnit.LessonsControllerImplTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContentIntegrationTest" />
         <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (2)" />
+        <item itemvalue="JUnit.ContentStepDefinitionsTest.test" />
+        <item itemvalue="JUnit.LessonsControllerImplTest" />
         <item itemvalue="Application.LessonsServiceApplication" />
-        <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (1)" />
-        <item itemvalue="JUnit.All in constr-sw-2022-1-g5" />
       </list>
     </recent_temporary>
   </component>
@@ -216,6 +221,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java</url>
           <line>139</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/content/ContentStepDefinitions.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
