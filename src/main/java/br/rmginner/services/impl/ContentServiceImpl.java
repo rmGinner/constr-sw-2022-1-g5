@@ -29,7 +29,7 @@ public class ContentServiceImpl implements ContentService {
         contentEntity = this.repository.save(contentEntity);
 
         dto.setId(contentEntity.getId());
-        dto.setName(contentEntity.getName());
+        dto.setName(contentEntity.getName() + " BUGGG");
         dto.setType(contentEntity.getType());
         dto.setLink(contentEntity.getLink());
 
