@@ -1,5 +1,10 @@
 package br.rmginner.services.impl;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+
+import br.rmginner.BaseTestContainers;
 import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 import br.rmginner.entities.Content;
@@ -11,18 +16,15 @@ import br.rmginner.repositories.LessonsRepository;
 import br.rmginner.services.LessonService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Example;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
 @SpringBootTest
-class LessonServiceImplTest {
+class LessonServiceImplTest extends BaseTestContainers {
 
     private static final String TEST_NAME = "Test";
 
@@ -42,12 +44,11 @@ class LessonServiceImplTest {
 
     @Test
     void shouldCreateLesson() {
-        final var lessonToSave = getTestLesson();
         final var savedLesson = getTestLesson();
 
         savedLesson.setId(TEST_ID);
 
-        Mockito.when(repository.save(lessonToSave))
+        Mockito.when(repository.save(ArgumentMatchers.any(Lesson.class)))
                 .thenReturn(savedLesson);
 
         final var createdLessonDto = service.save(getTestLessonDto());
@@ -61,7 +62,7 @@ class LessonServiceImplTest {
         final var lessonDtoListToReturn = List.of(getTestLessonDto());
         final var example = Example.of(Lesson.builder().classId(MOCK_CLASS_ID).build());
 
-        Mockito.when(repository.findAll(example))
+        Mockito.when(repository.findAll(ArgumentMatchers.any(Example.class)))
                 .thenReturn(lessons);
 
         final var lessonDtoList = service.getBy(MOCK_CLASS_ID);
@@ -74,7 +75,7 @@ class LessonServiceImplTest {
     void shouldGetLessonById() {
         final var lesson = getTestLesson();
 
-        Mockito.when(repository.findById(TEST_ID))
+        Mockito.when(repository.findOne(ArgumentMatchers.any(Example.class)))
                 .thenReturn(Optional.of(lesson));
 
         final var lessonDtoOptional = service.getLessonById(TEST_ID);
@@ -96,6 +97,7 @@ class LessonServiceImplTest {
                                         .build()
                         )
                 )
+                .isEnabled(true)
                 .build();
     }
 
