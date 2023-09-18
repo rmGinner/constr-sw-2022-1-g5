@@ -1,5 +1,6 @@
 package br.rmginner.gherkin.content;
 
+import br.rmginner.BaseTestContainers;
 import br.rmginner.controllers.ContentsController;
 import br.rmginner.repositories.ContentsRepository;
 import br.rmginner.services.ContentService;
@@ -19,5 +20,5 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 @AutoConfigureDataMongo
 @WebMvcTest({ContentsController.class, ContentService.class, ContentsRepository.class})
 @CucumberContextConfiguration
-public class ContentIntegrationTest {
+public class ContentIntegrationTest extends BaseTestContainers {
 }

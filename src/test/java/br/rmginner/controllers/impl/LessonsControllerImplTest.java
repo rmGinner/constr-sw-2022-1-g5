@@ -1,5 +1,9 @@
 package br.rmginner.controllers.impl;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+
 import br.rmginner.dtos.ContentDto;
 import br.rmginner.dtos.LessonDto;
 import br.rmginner.entities.enums.ContentType;
@@ -20,13 +24,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
 @WebMvcTest
 class LessonsControllerImplTest {
-    private static final String LESSONS_ENDPOINT = "/lessons";
+    private static final String LESSONS_ENDPOINT = "/lessons/";
 
     private static final String TEST_NAME = "Test";
 
@@ -35,12 +35,6 @@ class LessonsControllerImplTest {
     private static final LocalDateTime TEST_DATE = LocalDateTime.of(2022, 5, 4, 20, 13, 0);
 
     private static final String TEST_DATE_AS_STRING = "2022-05-04T20:13:00";
-
-    private static final String TEST_REQUIRED_DATE_MSG = "Data obrigatória";
-
-    private static final String TEST_REQUIRED_NAME_MSG = "Nome obrigatório";
-
-    private static final String TEST_INVALID_JSON_MSG = "Invalid request body format.";
 
     private static final String TEST_INVALID_JSON = "{ \"date\":\"tests\"}";
 
