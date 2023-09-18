@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="091ee7ca-ee7f-4a78-b0b7-278b0e48ad50" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/ParameterTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/content/ContentIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/CucumberIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/ContentStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/content/ContentStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/gherkin/content.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gherkin/content.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +26,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,6 +38,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="29MBl31V4MRLLJqK7BOXeVInhXM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -57,7 +66,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -73,19 +82,19 @@
       <recent name="br.rmginner.configurations" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.rmginner.gherkin" />
       <recent name="br.rmginner.dtos" />
       <recent name="br.rmginner.remotes.buildingservice.dto" />
       <recent name="br.rmginner.remotes.classservice.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LessonsServiceApplication">
+  <component name="RunManager" selected="JUnit.ContentIntegrationTest">
     <configuration name="LessonsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.rmginner.LessonsServiceApplication" />
       <module name="constr-sw-2022-1-g5" />
-      <option name="VM_PARAMETERS" value="-Dspring.data.mongodb.uri=mongodb://root:qwe123@ec2-34-200-225-174.compute-1.amazonaws.com:27017/lessons?authSource=admin" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.rmginner.*" />
+          <option name="PATTERN" value="br.rmginner.gherkin.content.ContentStepDefinitions" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,7 +102,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in constr-sw-2022-1-g5 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in constr-sw-2022-1-g5 (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="constr-sw-2022-1-g5" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -101,10 +110,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in constr-sw-2022-1-g5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContentIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="constr-sw-2022-1-g5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.rmginner.gherkin.content.ContentStepDefinitions" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.rmginner.gherkin.content" />
+      <option name="MAIN_CLASS_NAME" value="br.rmginner.gherkin.content.ContentIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContentStepDefinitionsTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="constr-sw-2022-1-g5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.rmginner.gherkin.content.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.rmginner.gherkin" />
+      <option name="MAIN_CLASS_NAME" value="br.rmginner.gherkin.ContentStepDefinitionsTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LessonsControllerImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="constr-sw-2022-1-g5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.rmginner.controllers.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.rmginner.controllers.impl" />
+      <option name="MAIN_CLASS_NAME" value="br.rmginner.controllers.impl.LessonsControllerImplTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -118,14 +165,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.LessonsServiceApplication" />
-      <item itemvalue="JUnit.All in constr-sw-2022-1-g5" />
-      <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (1)" />
+      <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (2)" />
+      <item itemvalue="JUnit.ContentStepDefinitionsTest.test" />
+      <item itemvalue="JUnit.ContentIntegrationTest" />
+      <item itemvalue="JUnit.LessonsControllerImplTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContentIntegrationTest" />
+        <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (2)" />
+        <item itemvalue="JUnit.ContentStepDefinitionsTest.test" />
+        <item itemvalue="JUnit.LessonsControllerImplTest" />
         <item itemvalue="Application.LessonsServiceApplication" />
-        <item itemvalue="JUnit.All in constr-sw-2022-1-g5 (1)" />
-        <item itemvalue="JUnit.All in constr-sw-2022-1-g5" />
       </list>
     </recent_temporary>
   </component>
@@ -158,8 +209,32 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/rmginner/interceptors/ResponseErrorInterceptor.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/br/rmginner/controllers/impl/LessonsControllerImplTest.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/br/rmginner/gherkin/content/ContentStepDefinitions.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5.ic" NAME="All in constr-sw-2022-1-g5 Coverage Results" MODIFIED="1653508511898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$LessonsServiceApplication.ic" NAME="LessonsServiceApplication Coverage Results" MODIFIED="1694145314049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.rmginner.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5__2_.ic" NAME="All in constr-sw-2022-1-g5 (2) Coverage Results" MODIFIED="1653505105025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5__1_.ic" NAME="All in constr-sw-2022-1-g5 (1) Coverage Results" MODIFIED="1653522092708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/constr_sw_2022_1_g5$All_in_constr_sw_2022_1_g5__3_.ic" NAME="All in constr-sw-2022-1-g5 (3) Coverage Results" MODIFIED="1653505905739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
