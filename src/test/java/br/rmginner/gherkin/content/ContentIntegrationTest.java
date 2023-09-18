@@ -14,7 +14,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/gherkin/content.feature", glue = {"br.rmginner.gherkin"}
+        features = "src/test/resources/gherkin/content.feature", glue = {"br.rmginner.gherkin"},
+        stepNotifications = true, plugin = {"pretty", "html:target/cucumber-report.html"}
 )
 @AutoConfigureMockMvc
 @AutoConfigureDataMongo
